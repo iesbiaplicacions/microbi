@@ -39,14 +39,15 @@ Microbi hauria de ser:
 
 3. Especificacions proposades
 
-|Component		|Especificació|
-|Bus de dades	|8 bits|
-|Bus d'adreces	|8 bits (256 posicions)|
-|Memòria		|256 bytes RAM (programa + dades)|
-|Instruccions	|~16 opcodes bàsics|
-|Registres		|PC, IR, AC, MAR, MDR, Flag Z|
-|Rellotge		|Manual (pas a pas) o automàtic (1-100 Hz)|
-|E/S			|8 LEDs, 8 switches, display 7 segments|
+| Component | Especificació |
+| :--- | :--- |
+| **Bus de dades** | 8 bits |
+| **Bus d'adreces** | 8 bits (256 posicions) |
+| **Memòria** | 256 bytes RAM (programa + dades) |
+| **Instruccions** | ~16 opcodes bàsics |
+| **Registres** | PC, IR, AC, MAR, MDR, Flag Z |
+| **Rellotge** | Manual (pas a pas) o automàtic (1-100 Hz) |
+| **E/S** | 8 LEDs, 8 switches, display 7 segments |
 
 
 4. Joc d'instruccions (ISA)
