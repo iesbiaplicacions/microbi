@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<title>Microbi — Simulador Von Neumann</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Microbi</h1>
+  <p class="subtitle">Simulador del microprocessador educatiu</p>
+</header>
+
+<main>
+  <!-- EDITOR ASSEMBLER -->
+  <section class="panel" id="editor-panel">
+    <h2>📝 Editor Assembler</h2>
+    <textarea id="asm-input" spellcheck="false">
+; Exemple: suma 5 + 3
+LDA #5
+ADD #3
+OUT 0
+HLT
+    </textarea>
+    <div class="btn-row">
+      <button id="btn-assemble">⚙️ Assemblar</button>
+      <button id="btn-clear">🗑️ Netejar</button>
+      <select id="example-select">
+        <option value="">— Exemples —</option>
+        <option value="suma">Suma 5+3</option>
+        <option value="comptador">Comptador 0-9</option>
+        <option value="semafor">Semàfor</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- CPU -->
+  <section class="panel" id="cpu-panel">
+    <h2>🧠 CPU</h2>
+    <div class="registers">
+      <div class="reg"><span>PC</span><b id="reg-pc">00000000</b></div>
+      <div class="reg"><span>IR</span><b id="reg-ir">00000000</b></div>
+      <div class="reg"><span>AC</span><b id="reg-ac">00000000</b></div>
+      <div class="reg"><span>MAR</span><b id="reg-mar">00000000</b></div>
+      <div class="reg"><span>MDR</span><b id="reg-mdr">00000000</b></div>
+      <div class="reg"><span>Z</span><b id="reg-z">0</b></div>
+    </div>
+    <div class="state" id="cpu-state">Aturat</div>
+    <div class="cycle" id="cpu-cycle">Cicle: —</div>
+  </section>
+
+  <!-- MEMÒRIA -->
+  <section class="panel" id="memory-panel">
+    <h2>💾 Memòria (256 bytes)</h2>
+    <div id="memory-grid" class="memory-grid"></div>
+  </section>
+
+  <!-- CODI MÀQUINA -->
+  <section class="panel" id="code-panel">
+    <h2>🔢 Codi Màquina</h2>
+    <div id="machine-code" class="machine-code"></div>
+  </section>
+
+  <!-- E/S -->
+  <section class="panel" id="io-panel">
+    <h2>🔌 E/S</h2>
+    <div class="io-row">
+      <span>Eixides (LEDs):</span>
+      <div id="leds" class="leds"></div>
+    </div>
+    <div class="io-row">
+      <span>Entrades (switches):</span>
+      <div id="switches" class="switches"></div>
+    </div>
+  </section>
+
+  <!-- CONTROLS -->
+  <section class="panel" id="controls-panel">
+    <h2>🎮 Controls</h2>
+    <div class="btn-row">
+      <button id="btn-step">⏭️ Step</button>
+      <button id="btn-run">▶️ Run</button>
+      <button id="btn-pause">⏸️ Pause</button>
+      <button id="btn-reset">⟲ Reset</button>
+    </div>
+    <div class="speed-row">
+      <label>Velocitat: <input type="range" id="speed" min="1" max="20" value="5"></label>
+      <span id="speed-label">5 Hz</span>
+    </div>
+  </section>
+
+  <!-- LOG -->
+  <section class="panel" id="log-panel">
+    <h2>📜 Log d'execució</h2>
+    <div id="log" class="log"></div>
+  </section>
+</main>
+
+<script src="js/memory.js"></script>
+<script src="js/assembler.js"></script>
+<script src="js/cpu.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

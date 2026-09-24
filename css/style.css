@@ -1,0 +1,154 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Courier New', monospace;
+  background: #0a0e0a;
+  color: #33ff33;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+header { text-align: center; margin-bottom: 1.5rem; }
+h1 { font-size: 2rem; text-shadow: 0 0 10px #33ff33; }
+.subtitle { opacity: 0.7; font-size: 0.9rem; }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: #0f140f;
+  border: 1px solid #1a3a1a;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 0 20px rgba(51, 255, 51, 0.05);
+}
+
+.panel h2 { font-size: 1rem; margin-bottom: 0.75rem; color: #66ff66; }
+
+/* Editor */
+#asm-input {
+  width: 100%;
+  height: 200px;
+  background: #000;
+  color: #33ff33;
+  border: 1px solid #1a3a1a;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.btn-row { display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap; }
+
+button {
+  background: #142814;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  padding: 0.4rem 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+button:hover { background: #33ff33; color: #000; }
+
+select, input[type="range"] {
+  background: #000; color: #33ff33;
+  border: 1px solid #1a3a1a; padding: 0.3rem;
+  font-family: inherit;
+}
+
+/* Registres */
+.registers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.reg {
+  background: #000;
+  border: 1px solid #1a3a1a;
+  padding: 0.4rem;
+  border-radius: 4px;
+  text-align: center;
+}
+.reg span { display: block; font-size: 0.7rem; opacity: 0.6; }
+.reg b { font-size: 0.85rem; color: #66ff66; }
+
+.state, .cycle {
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: #000;
+  border: 1px solid #1a3a1a;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Memòria */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2px;
+  font-size: 0.7rem;
+}
+.mem-cell {
+  background: #000;
+  border: 1px solid #1a3a1a;
+  padding: 2px;
+  text-align: center;
+  border-radius: 2px;
+}
+.mem-cell .addr { display: block; opacity: 0.4; font-size: 0.6rem; }
+.mem-cell.non-zero { background: #0a1f0a; border-color: #33ff33; }
+.mem-cell.active { background: #33ff33; color: #000; }
+.mem-cell.active .addr { opacity: 0.8; }
+
+/* Codi màquina */
+.machine-code { font-size: 0.8rem; max-height: 200px; overflow-y: auto; }
+.mc-line { display: flex; gap: 0.75rem; padding: 2px 0; }
+.mc-addr { color: #66ff66; }
+.mc-byte { color: #ffff33; }
+.mc-src  { opacity: 0.7; }
+
+/* E/S */
+.io-row { display: flex; align-items: center; gap: 1rem; margin: 0.5rem 0; }
+.leds { display: flex; gap: 0.5rem; }
+.led {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 2px solid #1a3a1a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem;
+  transition: all 0.2s;
+}
+.led.on {
+  background: #33ff33;
+  color: #000;
+  box-shadow: 0 0 15px #33ff33, 0 0 30px #33ff3388;
+}
+
+/* Controls */
+.speed-row { display: flex; align-items: center; gap: 1rem; margin-top: 0.75rem; }
+
+/* Log */
+#log {
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.log-line { padding: 1px 0; border-bottom: 1px solid #0f140f; }
+.log-line.ok    { color: #33ff33; }
+.log-line.warn  { color: #ffff33; }
+.log-line.error { color: #ff3333; }
+.log-line.exec  { color: #66ccff; }
+
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; }
+}
