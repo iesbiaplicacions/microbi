@@ -19,7 +19,7 @@ Microbi hauria de ser:
 
 2. Arquitectura Von Neumann al Microbi
 
-
+```
 ┌─────────────────────────────────────────┐
 │              MICROBI                    │
 │                                         │
@@ -35,6 +35,7 @@ Microbi hauria de ser:
 │  │ └──────┘ │      └──────────────┘     │
 │  └──────────┘                           │
 └─────────────────────────────────────────┘
+```
 
 3. Especificacions proposades
 
@@ -91,7 +92,7 @@ Frontal del Microbi:
 Un simulador web és ideal perquè els estudiants puguen escriure, assemblar i executar programes del Microbi. Ací tens el disseny complet i el codi funcional.
 
 6.1. Arquitectura del simulador
-
+```
 ┌─────────────────────────────────────────────────┐
 │                  SIMULADOR MICROBI              │
 ├─────────────────────────────────────────────────┤
@@ -110,6 +111,7 @@ Un simulador web és ideal perquè els estudiants puguen escriure, assemblar i e
 │  │  Velocitat: ▓▓▓▓░░░░░  [Log d'execució]    │ │
 │  └────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────┘
+```
 
 6.2. Estructura de fitxers
 
