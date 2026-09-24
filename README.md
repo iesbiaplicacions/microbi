@@ -1,5 +1,5 @@
 # microbi Von Neumann
-
+![Logo](logo.png)
 Microbi: Microeducatiu basat en l'Arquitectura de Von Neumann
 
 
