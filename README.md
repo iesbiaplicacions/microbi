@@ -1,8 +1,8 @@
 # microbi Von Neumann
 ![Logo](logo.png)
+
+
 Microbi: Microeducatiu basat en l'Arquitectura de Von Neumann
-
-
 
 "Microbi" és un nom curt, memorable i suggereix una cosa xicoteta i viva (com un microbi). Et propose una guia completa per a dissenyar-lo.
 
