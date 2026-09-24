@@ -6,7 +6,7 @@ Microbi: Microeducatiu basat en l'Arquitectura de Von Neumann
 
 "Microbi" és un nom curt, memorable i suggereix una cosa xicoteta i viva (com un microbi). Et propose una guia completa per a dissenyar-lo.
 
-1. Concepte i filosofia
+## 1. Concepte i filosofia
 
 Microbi hauria de ser:
 
@@ -17,7 +17,7 @@ Microbi hauria de ser:
     ▶️ Interactiu: veure el cicle Fetch-Decode-Execute en acció
 
 
-2. Arquitectura Von Neumann al Microbi
+## 2. Arquitectura Von Neumann al Microbi
 
 ```
 ┌─────────────────────────────────────────┐
@@ -37,7 +37,7 @@ Microbi hauria de ser:
 └─────────────────────────────────────────┘
 ```
 
-3. Especificacions proposades
+## 3. Especificacions proposades
 
 | Component | Especificació |
 | :--- | :--- |
@@ -50,30 +50,31 @@ Microbi hauria de ser:
 | **E/S** | 8 LEDs, 8 switches, display 7 segments |
 
 
-4. Joc d'instruccions (ISA)
+## 4. Joc d'instruccions (ISA)
 
-
-0x0N  LDA #N     Carrega literal N a AC
-0x1N  LDA [N]    Carrega de memòria[N] a AC
-0x2N  STA [N]    Guarda AC a memòria[N]
-0x3N  ADD #N     AC = AC + N
-0x4N  ADD [N]    AC = AC + memòria[N]
-0x5N  SUB #N     AC = AC - N
-0x6N  JMP N      Salta a adreça N
-0x7N  JZ  N      Salta si AC = 0
-0x8N  OUT N      Escriu AC al port N
-0x9N  IN  N      Llegeix port N a AC
-0xE0  NOP        No operació
-0xF0  HLT        Para
+| Opcode | Instrucció | Descripció |
+| :--- | :--- | :--- |
+| `0x0N` | **LDA #N** | Carrega literal N a AC |
+| `0x1N` | **LDA [N]** | Carrega de memòria[N] a AC |
+| `0x2N` | **STA [N]** | Guarda AC a memòria[N] |
+| `0x3N` | **ADD #N** | AC = AC + N |
+| `0x4N` | **ADD [N]** | AC = AC + memòria[N] |
+| `0x5N` | **SUB #N** | AC = AC - N |
+| `0x6N` | **JMP N** | Salta a adreça N |
+| `0x7N` | **JZ N** | Salta si AC = 0 |
+| `0x8N` | **OUT N** | Escriu AC al port N |
+| `0x9N` | **IN N** | Llegeix port N a AC |
+| `0xE0` | **NOP** | No operació |
+| `0xF0` | **HLT** | Para |
 
 Exemple de programa (sumar 5+3):
-
+```
 00: LDA #5
 01: ADD #3
 02: OUT 0
 03: HLT
-
-5. Interfície d'usuari
+```
+## 5. Interfície d'usuari
 
 Frontal del Microbi:
 
@@ -88,11 +89,11 @@ Frontal del Microbi:
     ⚪ Polsador STEP per avançar un cicle
 
 
-6. Simulador Web del Microbi
+## 6. Simulador Web del Microbi
 
 Un simulador web és ideal perquè els estudiants puguen escriure, assemblar i executar programes del Microbi. Ací tens el disseny complet i el codi funcional.
 
-6.1. Arquitectura del simulador
+### 6.1. Arquitectura del simulador
 ```
 ┌─────────────────────────────────────────────────┐
 │                  SIMULADOR MICROBI              │
@@ -114,7 +115,7 @@ Un simulador web és ideal perquè els estudiants puguen escriure, assemblar i e
 └─────────────────────────────────────────────────┘
 ```
 
-6.2. Estructura de fitxers
+### 6.2. Estructura de fitxers
 
 ```
 microbi/
@@ -132,9 +133,9 @@ microbi/
     ├── comptador.asm
     └── semafor.asm
 ```
-6.3. Codi complet — index.html
+### 6.3. Codi complet — index.html
 
-
+```
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -240,10 +241,10 @@ HLT
 <script src="js/main.js"></script>
 </body>
 </html>
+```
+### 6.4. Nucli de la CPU — js/cpu.js
 
-6.4. Nucli de la CPU — js/cpu.js
-
-
+```
 // ============================================
 // MICROBI CPU — Von Neumann
 // ============================================
@@ -359,9 +360,9 @@ class MicrobiCPU {
     this.cycle = 'FETCH';
   }
 }
-
-6.5. Memòria — js/memory.js
-
+```
+### 6.5. Memòria — js/memory.js
+```
 class MicrobiMemory {
   constructor(size = 256) {
     this.size = size;
@@ -386,9 +387,9 @@ class MicrobiMemory {
     }
   }
 }
-
-6.6. Assembler — js/assembler.js
-
+```
+### 6.6. Assembler — js/assembler.js
+```
 // ============================================
 // ASSEMBLER MICROBI
 // Format: OPCODE [operand]
@@ -486,9 +487,9 @@ function assemble(source) {
 
   return { instructions, labels, errors };
 }
-
-6.7. Interfície — js/ui.js
-
+```
+### 6.7. Interfície — js/ui.js
+```
 // ============================================
 // RENDERITZAT DE LA UI
 // ============================================
@@ -549,10 +550,10 @@ function log(msg, type = 'info') {
   line.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
   el.prepend(line);
 }
-
+```
 6.8. Programa principal — js/main.js
 
-
+```
 // ============================================
 // INICIALITZACIÓ I CONTROLS
 // ============================================
@@ -652,10 +653,10 @@ document.getElementById('example-select').onchange = (e) => {
 
 // Inicialització
 refresh();
-log('🧫 Microbi a punt. Escriu un programa i prem "Assemblar".', 'ok');
-
-6.9. Estil — css/style.css
-
+log('Microbi a punt. Escriu un programa i prem "Assemblar".', 'ok');
+```
+### 6.9. Estil — css/style.css
+```
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
@@ -810,14 +811,14 @@ select, input[type="range"] {
 @media (max-width: 900px) {
   main { grid-template-columns: 1fr; }
 }
-
-6.10. Exemples per al Microbi
+```
+### 6.10. Exemples per al Microbi
 
 Ací tens els tres fitxers d'exemple comentats, llestos per a posar a la carpeta examples/.
 
 📄 examples/suma.asm
 
-
+```
 ; ============================================
 ; suma.asm — Suma bàsica
 ; ============================================
@@ -843,10 +844,10 @@ Ací tens els tres fitxers d'exemple comentats, llestos per a posar a la carpeta
 ;   PC=3  FETCH  IR=F0  AC=8
 ;   PC=3  EXEC   IR=F0  AC=8   → HALT
 ; --------------------------------------------
-
+```
 
 📄 examples/comptador.asm
-
+```
 ; ============================================
 ; comptador.asm — Comptador infinit 0..255
 ; ============================================
@@ -877,10 +878,10 @@ bucle:
 ;   AC=0   → OUT 0 → LED = 0   (desbordament)
 ;   ...
 ; --------------------------------------------
-
+````
 
 📄 examples/semafor.asm
-
+```
 ; ============================================
 ; semafor.asm — Simulació d'un semàfor
 ; ============================================
@@ -926,3 +927,4 @@ inici:
 
         HLT
 
+```
