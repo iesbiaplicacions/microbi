@@ -115,7 +115,7 @@ Un simulador web és ideal perquè els estudiants puguen escriure, assemblar i e
 
 6.2. Estructura de fitxers
 
-
+```
 microbi/
 ├── index.html
 ├── css/
@@ -130,7 +130,7 @@ microbi/
     ├── suma.asm
     ├── comptador.asm
     └── semafor.asm
-
+```
 6.3. Codi complet — index.html
 
 
