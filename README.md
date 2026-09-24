@@ -551,7 +551,7 @@ function log(msg, type = 'info') {
   el.prepend(line);
 }
 ```
-6.8. Programa principal — js/main.js
+### 6.8. Programa principal — js/main.js
 
 ```
 // ============================================
