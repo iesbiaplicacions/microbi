@@ -1,4 +1,4 @@
-00: LDA #0        ; AC = 0  (aquí anirem acumulant el resultat)
+00: LDA #0        ; AC = 0  (ací anirem acumulant el resultat)
 01: STA [10]      ; mem[10] = 0   → resultat
 
 02: LDA #4        ; AC = 4
