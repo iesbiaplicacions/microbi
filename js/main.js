@@ -87,8 +87,9 @@ document.getElementById('example-select').onchange = (e) => {
   const examples = {
     suma: `; Suma 5 + 3\nLDA #5\nADD #3\nOUT 0\nHLT`,
     comptador: `; Comptador 0-9\nLDA #0\nbucle:\nOUT 0\nADD #1\nJMP bucle`,
-    semafor: `; Semàfor simple\ninici:\nLDA #1\nOUT 0\nLDA #2\nOUT 0\nJMP inici`
-    multiplicar: `LDA #0\nSTA [10]\nLDA #4\nSTA [11]\nLDA [10]\nADD #3\nSTA [10]\nLDA [11]\nSUB #1\nSTA [11]\nJZ 0D\nJMP 04\nLDA [10]\nOUT 0 fi`
+    semafor: `; Semàfor simple\ninici:\nLDA #1\nOUT 0\nLDA #2\nOUT 0\nJMP inici`,
+    multiplica: `; Multiplica 3·4`
+    
   };
   if (examples[e.target.value]) {
     document.getElementById('asm-input').value = examples[e.target.value];
