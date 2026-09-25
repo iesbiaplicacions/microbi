@@ -106,7 +106,7 @@ JMP bucle
 fi:
 LDA [10]
 OUT 0
-HLT`,
+HLT`
   };
   if (examples[e.target.value]) {
     document.getElementById('asm-input').value = examples[e.target.value];
